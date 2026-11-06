@@ -1,11 +1,31 @@
 <?php
 require "./order_functions.php";
+
 // Runs at the very top of process_order.php, alongside session_start().
 // One day = 86400 seconds. One week = 604800.
 $visitStamp = date('l, F j, Y g:i a');
 setcookie('lastVisit', $visitStamp, time() + 86400, '/');
 $orderSummary = order();
 ?>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <title>Order Receipt</title>
+</head>
+
+<body>
+
+   <h1>Your Order Receipt</h1>
+
+   <div class="receipt-card">
+      <?= $orderSummary; ?>
+   </div>
+
+   <a href="index.php">Order Again!</a>
+
 
 <div class="receipt-card"><?= $orderSummary; ?></div>
 
@@ -26,3 +46,7 @@ $orderSummary = order();
    </div>
    <p class="insight-note full-width-note"><?= htmlspecialchars(pricingNote()); ?></p>
 </div>
+
+</body>
+
+</html>
