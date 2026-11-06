@@ -26,6 +26,10 @@ $orderSummary = order();
 
    <a href="index.php">Order Again!</a>
 
+    <p>
+    <a href="forget_order.php">Forget Order / Start Fresh</a>
+    </p>
+
 
 <div class="receipt-card"><?= $orderSummary; ?></div>
 
