@@ -1,10 +1,11 @@
 <?php
-require "./order_functions.php";
+require_once "./order_functions.php";
 
 // Runs at the very top of process_order.php, alongside session_start().
 // One day = 86400 seconds. One week = 604800.
 $visitStamp = date('l, F j, Y g:i a');
 setcookie('lastVisit', $visitStamp, time() + 86400, '/');
+
 $orderSummary = order();
 ?>
 
@@ -29,9 +30,6 @@ $orderSummary = order();
     <p>
     <a href="forget_order.php">Forget Order / Start Fresh</a>
     </p>
-
-
-<div class="receipt-card"><?= $orderSummary; ?></div>
 
 <div class="insight-card">
    <h3>Order feedback</h3>

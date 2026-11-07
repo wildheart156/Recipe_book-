@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+
 function order(): string {
 
    $dessert = trim($_POST['dessert'] ?? '');
